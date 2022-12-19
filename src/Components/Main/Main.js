@@ -1,5 +1,6 @@
 import React from "react";
 import MoviesList from "../MoviesList/MoviesList";
+import Loader from "../Loader/Loader";
 
 import './Main.scss';
 
@@ -22,7 +23,7 @@ class Main extends React.Component {
                 {
                     movies.length ? (
                         <MoviesList movies={movies}/>
-                    ) : <h5>Loading...</h5>
+                    ) : <Loader/>
                 }
             </main>
         )
