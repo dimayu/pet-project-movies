@@ -1,0 +1,7 @@
+@import "src/baseStyles/smart-grid";
+
+.cards-list {
+  @include row-flex();
+  margin-top: 24px;
+  margin-bottom: 24px;
+}

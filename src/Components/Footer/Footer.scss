@@ -1,0 +1,17 @@
+@import "src/baseStyles/variables";
+
+.footer {
+  flex: 0 0 auto;
+  background: linear-gradient(90.53deg, rgba(0, 0, 0, 0.75) 0.45%, rgba(102, 80, 165, 0.75) 105.51%);
+  padding: 12px 0;
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__copy, &__link {
+      color: $color-yellow;
+    }
+  }
+}

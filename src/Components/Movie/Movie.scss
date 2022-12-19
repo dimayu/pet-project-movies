@@ -1,0 +1,41 @@
+@import "src/baseStyles/smart-grid";
+@import "src/baseStyles/variables";
+
+.card {
+  @include col();
+  @include size(3);
+
+  &__img {
+    overflow: hidden;
+    height: 80%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
+      border-radius: 7px;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: 6px;
+
+    &--title {
+      margin-top: 6px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    &--description {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+
+      span:nth-child(1) {
+        color: $color-yellow;
+      }
+    }
+  }
+}
