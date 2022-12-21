@@ -6,7 +6,7 @@ function Header() {
             <div className="wrapper">
                 <div className="header__items">
                     <a href="#" className="header__items__logo">DRAMATIC</a>
-                    <input type="text" className="header__items__search"/>
+                    <a href="">Repo</a>
                 </div>
             </div>
         </header>

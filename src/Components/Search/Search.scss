@@ -1,0 +1,92 @@
+@import "src/baseStyles/variables";
+
+.search {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+
+  &__input {
+    flex-grow: 1;
+    height: 100%;
+    margin-right: 20px;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $color-yellow;
+    }
+  }
+
+  &__btn {
+    width: 15%;
+    max-width: 100px;
+    height: 100%;
+    background-color: $color-yellow;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}
+
+.sort {
+  margin-top: 12px;
+
+  &__label {
+    margin-right: 24px;
+    cursor: pointer;
+
+    &--input {
+      width: 0;
+      height: 0;
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+
+      &:checked + .sort__custom-radio::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      &:focus + .sort__custom-radio {
+        box-shadow: 0 0 0 1px #a3a4a7, 0 0 5px #7e9bbd;
+      }
+    }
+  }
+
+  &__custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border: 2px solid $color-yellow;
+    border-radius: 50%;
+    vertical-align: text-top;
+    margin-right: 5px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: $color-yellow;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: 0.2s ease-in;
+    }
+  }
+}

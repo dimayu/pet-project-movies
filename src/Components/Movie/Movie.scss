@@ -25,6 +25,9 @@
       margin-top: 6px;
       font-weight: 700;
       font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &--description {
