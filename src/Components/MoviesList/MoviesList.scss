@@ -13,3 +13,11 @@
   font-size: 32px;
   font-weight: 600;
 }
+
+.pages-nav {
+  display: flex;
+
+  &__item {
+    padding: 6px;
+  }
+}

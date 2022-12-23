@@ -1,6 +1,6 @@
 # Pet project movies
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pat Project Movies.
+Movie search and filtering implementations using third-party APIs.
 
 ## Available Scripts
 

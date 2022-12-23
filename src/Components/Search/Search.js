@@ -1,83 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 
 import './Search.scss'
 
-class Search extends React.Component {
-    state = {
-        search: "",
-        type: "all"
-    }
+const Search = (props) => {
+    const {
+        searchMovies = Function.prototype,
+        filterMovies = Function.prototype,
+    } = props;
 
-    handleKey = (event) => {
+    const [search, setSearch] = useState('');
+    const [type, setType] = useState('top_rated');
+
+    const handleKey = (event) => {
         if (event.key === "Enter") {
-            this.props.searchMovies(this.state.search, this.state.type)
+            searchMovies(search)
         }
     }
 
-    handleFilter = (event) => {
-        this.setState(() => ({type: event.target.dataset.type}), () => {
-            this.props.searchMovies(this.state.search, this.state.type);
-        })
+    const handleFilter = (event) => {
+        setType(event.target.dataset.type);
+        filterMovies(event.target.dataset.type);
     }
 
-    render() {
-        return (
-            <div className="wrapper">
-                <div className="search">
-                    <input
-                        type="text"
-                        className="search__input"
-                        placeholder="search"
-                        name="search"
-                        value={this.state.search}
-                        onChange={(e) => this.setState({search: e.target.value})}
-                        onKeyDown={this.handleKey}
-                    />
-                    <button
-                        className="search__btn"
-                        onClick={() => this.props.searchMovies(this.state.search, this.state.type)}
-                    >
-                        Search
-                    </button>
-                </div>
-                <div className="sort">
-                    <label className="sort__label">
-                        <input type="radio"
-                               name="sort"
-                               className="sort__label--input"
-                               data-type="all"
-                               onChange={this.handleFilter}
-                               checked={this.state.type === "all"}
-                        />
-                        <span className="sort__custom-radio"></span>
-                        <span className="sort__label--text">All</span>
-                    </label>
-                    <label className="sort__label">
-                        <input type="radio"
-                               name="sort"
-                               className="sort__label--input"
-                               data-type="movie"
-                               onChange={this.handleFilter}
-                               checked={this.state.type === "movie"}
-                        />
-                        <span className="sort__custom-radio"></span>
-                        <span className="sort__label--text">Movies</span>
-                    </label>
-                    <label className="sort__label">
-                        <input type="radio"
-                               name="sort"
-                               className="sort__label--input"
-                               data-type="series"
-                               onChange={this.handleFilter}
-                               checked={this.state.type === "series"}
-                        />
-                        <span className="sort__custom-radio"></span>
-                        <span className="sort__label--text">Series</span>
-                    </label>
-                </div>
+    return (
+        <div className="wrapper">
+            <div className="search">
+                <input
+                    type="text"
+                    className="search__input"
+                    placeholder="search"
+                    name="search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    onKeyDown={handleKey}
+                />
+                <button
+                    className="search__btn"
+                    onClick={() => searchMovies(search, type)}
+                >
+                    Search
+                </button>
             </div>
-        )
-    }
+            <div className="sort">
+                <label className="sort__label">
+                    <input type="radio"
+                           name="sort"
+                           className="sort__label--input"
+                           data-type="top_rated"
+                           onChange={handleFilter}
+                           checked={type === "top_rated"}
+                    />
+                    <span className="sort__custom-radio"></span>
+                    <span className="sort__label--text">Top</span>
+                </label>
+                <label className="sort__label">
+                    <input type="radio"
+                           name="sort"
+                           className="sort__label--input"
+                           data-type="upcoming"
+                           onChange={handleFilter}
+                           checked={type === "upcoming"}
+                    />
+                    <span className="sort__custom-radio"></span>
+                    <span className="sort__label--text">Upcoming</span>
+                </label>
+                <label className="sort__label">
+                    <input type="radio"
+                           name="sort"
+                           className="sort__label--input"
+                           data-type="popular"
+                           onChange={handleFilter}
+                           checked={type === "popular"}
+                    />
+                    <span className="sort__custom-radio"></span>
+                    <span className="sort__label--text">Popular</span>
+                </label>
+            </div>
+        </div>
+    )
 }
 
 export default Search;
