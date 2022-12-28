@@ -13,7 +13,8 @@ const Search = (props) => {
 
     const handleKey = (event) => {
         if (event.key === "Enter") {
-            searchMovies(search)
+            searchMovies(search);
+            setSearch('');
         }
     }
 
@@ -36,7 +37,7 @@ const Search = (props) => {
                 />
                 <button
                     className="search__btn"
-                    onClick={() => searchMovies(search, type)}
+                    onClick={() => searchMovies(search, setSearch(''))}
                 >
                     Search
                 </button>

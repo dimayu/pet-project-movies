@@ -1,0 +1,21 @@
+@import "src/baseStyles/smart-grid";
+
+.genres__items {
+  @include row-flex();
+  justify-content: center;
+
+  &__item {
+    @include col();
+    background-color: #5C5C5C;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    padding: 10px 24px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    &--active {
+      background-color: #E43109;
+    }
+  }
+}

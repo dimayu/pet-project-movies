@@ -1,7 +1,8 @@
+import {URL_IMG} from "../../ServiceMovies/ServiceMovies"
+
 import './Movie.scss'
 
 function Movie(props) {
-    const URL_IMG = "https://image.tmdb.org/t/p/original";
     const {
         title,
         release_date,
@@ -11,12 +12,18 @@ function Movie(props) {
     return (
         <div className="card">
             <div className="card__img">
-                <img src={URL_IMG + poster_path} alt={title} width="258px" height="356px"/>
+                {poster_path !== null
+                    ? <img
+                        src={URL_IMG + poster_path}
+                        alt={title || "no title"}
+                        width="258px" height="356px"/>
+                    : "Image Not Found"
+                }
             </div>
             <div className="card__content">
-                <h4 className="card__content--title">{title}</h4>
+                <h4 className="card__content--title">{title || "no title"}</h4>
                 <div className="card__content--description">
-                    <span>{release_date}</span>
+                    <span>{release_date || "||||-||-||"}</span>
                     <span>{vote_average}</span>
                 </div>
             </div>
