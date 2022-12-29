@@ -1,28 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import './Search.scss'
+import './Search.scss';
 
-const Search = (props) => {
+export const Search = (props) => {
     const {
         searchMovies = Function.prototype,
         filterMovies = Function.prototype,
     } = props;
-
+    
     const [search, setSearch] = useState('');
     const [type, setType] = useState('top_rated');
-
+    
     const handleKey = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === 'Enter') {
             searchMovies(search);
             setSearch('');
         }
-    }
-
+    };
+    
     const handleFilter = (event) => {
         setType(event.target.dataset.type);
         filterMovies(event.target.dataset.type);
-    }
-
+    };
+    
     return (
         <div className="wrapper">
             <div className="search">
@@ -78,7 +78,5 @@ const Search = (props) => {
                 </label>
             </div>
         </div>
-    )
-}
-
-export default Search;
+    );
+};

@@ -1,8 +1,8 @@
-import {URL_IMG} from "../../ServiceMovies/ServiceMovies"
+import { URL_IMG } from '../../ServiceMovies/ServiceMovies';
 
-import './Movie.scss'
+import './Movie.scss';
 
-function Movie(props) {
+export const Movie = (props) => {
     const {
         title,
         release_date,
@@ -28,7 +28,5 @@ function Movie(props) {
                 </div>
             </div>
         </div>
-    )
-}
-
-export default Movie;
+    );
+};

@@ -1,6 +1,6 @@
 import './Header.scss'
 
-function Header() {
+export const Header = () => {
     return (
         <header className="header">
             <div className="wrapper">
@@ -12,5 +12,3 @@ function Header() {
         </header>
     )
 }
-
-export default Header;

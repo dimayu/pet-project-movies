@@ -1,6 +1,6 @@
 import './Footer.scss'
 
-function Footer() {
+export const Footer = () => {
     const date = new Date().getFullYear();
 
     return (
@@ -14,5 +14,3 @@ function Footer() {
         </footer>
     )
 }
-
-export default Footer;

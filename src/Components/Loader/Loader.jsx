@@ -1,6 +1,6 @@
 import './Loader.scss'
 
-function Loader() {
+export const Loader = () => {
     return (
         <div className="loader-wrapper">
             <div className="loader">
@@ -16,5 +16,3 @@ function Loader() {
         </div>
     )
 }
-
-export default Loader;
