@@ -1,15 +1,15 @@
-import { HomeSlider } from '../HomeSlider/HomeSlider';
-import { BlockSearchFilter } from '../BlockSearchFilter/BlockSearchFilter';
-import { BlockGenres } from '../BlockGenres/BlockGenres';
+import { Routes, Route } from "react-router-dom";
+import { PageGenres, Home } from '../../Pages';
 
 import './Main.scss';
 
 export const Main = () => {
     return (
         <main className="main">
-            <HomeSlider/>
-            <BlockSearchFilter/>
-            <BlockGenres/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/genres" element={<PageGenres/>}/>
+            </Routes>
         </main>
     );
 };

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { Loader } from '../Loader/Loader';
-import { Genres } from '../Genres/Genres';
-import { MoviesList } from '../MoviesList/MoviesList';
+import { Loader, Genres, MoviesList } from '../index';
 import { API_BASE_URL, API_KEY, API_LANG } from '../../ServiceMovies/ServiceMovies';
 
 

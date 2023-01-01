@@ -1,38 +1,15 @@
-import { useState } from 'react';
-import { Movie } from '../Movie/Movie';
+import { Movie } from '../index';
 
 import './MoviesList.scss';
 
 export const MoviesList = (props) => {
     const {movies = []} = props;
-    const [length, setLength] = useState(4);
-    const [toggleClass, setToggleClass] = useState(false);
-    
-    function handleClickShow() {
-        setToggleClass(true);
-        setLength();
-    }
-    
-    function handleClickHide() {
-        setToggleClass(false);
-        setLength(4);
-    }
     
     return (
         <section>
             <div className="wrapper">
-                {
-                    toggleClass === false
-                        ? <button
-                            onClick={handleClickShow}
-                            className="btn"
-                        >Show more</button>
-                        : <button onClick={handleClickHide}
-                                  className="btn"
-                        >Hide</button>
-                }
                 <div className="cards-list">
-                    {movies.length ? movies.slice(0, length).map(movie => (
+                    {movies.length ? movies.map(movie => (
                         <Movie key={movie.id} {...movie}/>
                     )) : <h4 className="not-found">Nothing found</h4>}
                 </div>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Search } from '../Search/Search';
-import { Loader } from '../Loader/Loader';
-import { MoviesList } from '../MoviesList/MoviesList';
+import { Search, Loader, MoviesList } from '../index';
 import { API_BASE_URL, API_KEY, API_LANG } from '../../ServiceMovies/ServiceMovies';
 
 export const BlockSearchFilter = () => {
@@ -38,10 +36,10 @@ export const BlockSearchFilter = () => {
     
     const searchMovies = (str) => {
         setLoading(true);
-        fetch(`${API_BASE_URL}search/movie/?api_key=${API_KEY}&${API_LANG}&query=${str}&page=1&include_adult=false`)
+        fetch(`${API_BASE_URL}search/movie?api_key=${API_KEY}&${API_LANG}&query=${str}&page=1&include_adult=false`)
         .then(response => response.json())
         .then(data => {
-            setMovies(data);
+            setMovies(data.results);
             setLoading(false);
         })
         .catch((err) => {

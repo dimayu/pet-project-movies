@@ -1,15 +1,17 @@
-import { Header } from '../Header/Header';
-import { Main } from '../Main/Main';
-import { Footer } from '../Footer/Footer';
+import { BrowserRouter } from "react-router-dom";
+
+import { Header, Main, Footer } from '../index';
 
 import './App.scss';
 
 export const App = () => {
     return (
         <div className="App">
-            <Header/>
-            <Main/>
-            <Footer/>
+            <BrowserRouter>
+                <Header/>
+                <Main />
+                <Footer/>
+            </BrowserRouter>
         </div>
     );
 };
