@@ -1,1 +1,1 @@
-export * from './PageGenres'
+export * from './PageGenres';

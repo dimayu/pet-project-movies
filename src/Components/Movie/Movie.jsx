@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { URL_IMG } from '../../ServiceMovies/ServiceMovies';
 
 import './Movie.scss';
@@ -7,10 +9,12 @@ export const Movie = (props) => {
         title,
         release_date,
         vote_average,
-        poster_path
+        poster_path,
+        id
     } = props;
+    
     return (
-        <div className="card">
+        <Link to={`movies/${id}`} className="card">
             <div className="card__img">
                 {poster_path !== null
                     ? <img
@@ -27,6 +31,6 @@ export const Movie = (props) => {
                     <span>{vote_average}</span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
