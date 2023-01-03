@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { API_BASE_URL, API_KEY, API_LANG, URL_IMG } from '../../ServiceMovies/ServiceMovies';
 import { Loader } from '../index';
@@ -87,7 +88,7 @@ export const HomeSlider = () => {
                                                 <p className="slide__content__text--desc">{movie.overview}</p>
                                             </div>
                                             <div className="slide__content__bottom">
-                                                <button className="slide__content__bottom--btn">Go to movie</button>
+                                                <Link to={`movies/${movie.id}`} className="slide__content__bottom--btn">Go to movie</Link>
                                                 <div className="slide__content__bottom--img">
                                                     {movie.poster_path !== null
                                                         ? <img

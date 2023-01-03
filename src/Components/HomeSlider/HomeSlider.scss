@@ -9,9 +9,9 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg,  #000 -4.24%, rgba(0, 0, 0, 0.687449) 12.44%, rgba(196, 196, 196, 0) 100%);
-  z-index: 7;
-  filter: drop-shadow(0px 4px 23px rgba(0, 0, 0, 0.25));
+  background: linear-gradient(0deg,  #000 -3.24%, rgba(0, 0, 0, 0.1) 3%, rgba(196, 196, 196, 0) 100%);
+  z-index: 9;
+  pointer-events: none;
 }
 
 .slide__img {
@@ -26,6 +26,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 10;
 
     .wrapper {
       height: 100%;
