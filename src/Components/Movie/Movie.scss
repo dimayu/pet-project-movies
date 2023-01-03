@@ -4,14 +4,20 @@
 .card {
   @include col();
   @include size(3);
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
+
+  &:hover {
+    .card__img {
+      box-shadow: 0 0 5px 2px rgba(221, 221, 221, 1);
+    }
+  }
 
   &__img {
     background: linear-gradient(90.53deg, rgba(0, 0, 0, 0.75) 0.45%, rgba(102, 80, 165, 0.75) 105.51%);
     overflow: hidden;
-    height: 80%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,11 +32,12 @@
   }
 
   &__content {
-    height: 20%;
+    height: 10%;
     display: flex;
     flex-direction: column;
     margin-top: auto;
     padding: 6px;
+    color: #fff;
 
     &--title {
       margin: 6px 0;

@@ -18,3 +18,20 @@
   line-height: 1.2;
   color: #FFFFFF;
 }
+
+.MuiPagination-root {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+
+  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+    color: #fff;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    color: $color-yellow;
+  }
+}
