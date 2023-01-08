@@ -27,6 +27,11 @@
   .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
     color: #fff;
 
+    @include xxs-block() {
+      min-width: 24px;
+      width: 24px;
+    }
+
     &:hover {
       color: $color-yellow;
     }

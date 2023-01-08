@@ -8,7 +8,7 @@ export const Header = () => {
         <header className="header">
             <div className="wrapper">
                 <div className="header__items">
-                    <Link to="/" className="header__items__logo">DRAMATIC</Link>
+                    <Link to="/" className="header__items__logo">Movies</Link>
                     <Navigation/>
                 </div>
             </div>

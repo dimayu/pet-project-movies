@@ -1,3 +1,5 @@
+@import "src/baseStyles/smart-grid";
+
 .swiper-pagination-bullet {
   background: #FFC907;
 }
@@ -16,7 +18,6 @@
 
 .slide__img {
   filter: brightness(40%);
-
 }
 
 .slide {
@@ -42,6 +43,14 @@
       margin-top: 5%;
       max-width: 40%;
 
+      @include md-block() {
+        max-width: 60%;
+      }
+
+      @include sm-block() {
+        max-width: 100%;
+      }
+
       &--title {
         display: inline-block;
         background-color: #E43109;
@@ -49,6 +58,16 @@
         padding: 10px;
         font-size: 24px;
         font-weight: 600;
+
+        @include md-block() {
+          margin-bottom: 12px;
+          padding: 6px;
+          font-size: 18px;
+        }
+
+        @include sm-block() {
+          background-color: transparent;
+        }
       }
 
       &--desc {
@@ -56,6 +75,10 @@
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
+
+        @include md-block() {
+          -webkit-line-clamp: 2;
+        }
       }
     }
 
@@ -74,6 +97,10 @@
         font-size: 22px;
         color: #fff;
 
+        @include md-block() {
+          font-size: 18px;
+        }
+
         &:hover {
           background-color: #FFC907;
         }
@@ -86,6 +113,10 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 0 5px 2px rgba(221, 221, 221, 1);
+
+        @include sm-block() {
+          display: none;
+        }
       }
     }
   }

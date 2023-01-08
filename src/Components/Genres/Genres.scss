@@ -18,6 +18,12 @@
     cursor: pointer;
     overflow: hidden;
 
+    @include md-block() {
+      margin: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+
     &--input {
       width: 0;
       height: 0;
@@ -48,5 +54,5 @@
 
 .genres__label--text {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
