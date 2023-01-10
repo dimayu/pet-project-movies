@@ -1,9 +1,9 @@
-import { BlockGenres } from '../../Components/BlockGenres/BlockGenres';
+import { BlockGenres } from '../../Components/index';
 
 export const PageGenres = () => {
-    return (
-        <>
-            <BlockGenres />
-        </>
-    )
-}
+  return (
+    <>
+      <BlockGenres/>
+    </>
+  );
+};

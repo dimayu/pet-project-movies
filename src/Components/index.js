@@ -11,3 +11,7 @@ export * from './Movie';
 export * from './MoviesList';
 export * from './Navigation';
 export * from './Search';
+export * from './MovieContent';
+export * from './MovieActors';
+export * from './MovieCrew';
+export * from './MovieTrailer';

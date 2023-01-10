@@ -11,14 +11,22 @@ export const PageCategories = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
+    const [pages, setPages] = useState();
     
     useEffect(() => {
         setLoading(true);
         fetch(`${API_BASE_URL}movie/${category}?api_key=${API_KEY}&${API_LANG}&page=${page}`)
-        .then(response => response.json())
+        .then(response => {
+            if (response?.ok) {
+                return response.json();
+            }
+        })
         .then(data => {
-            setMovies(data);
-            setLoading(false);
+            if (data) {
+                setMovies(data.results);
+                setPages((data.total_pages < 50) ? data.total_pages : 50) ;
+                setLoading(false);
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -30,15 +38,13 @@ export const PageCategories = () => {
         setPage(value);
     };
     
-    const pages = (movies.total_pages < 50) ? movies.total_pages : 50;
-    
     return (
         <>
             {loading
                 ? <Loader/>
                 : <>
                     <MoviesList
-                        movies={movies.results}
+                        movies={movies}
                     />
                     <Pagination
                         count={pages}

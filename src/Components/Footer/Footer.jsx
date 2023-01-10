@@ -8,7 +8,7 @@ export const Footer = () => {
             <div className="wrapper">
                 <div className="footer__items">
                     <p className="footer__items__copy">copyright © {date}</p>
-                    <a className="footer__items__link" href="#">Repo</a>
+                    <a className="footer__items__link" href="https://github.com/dimayu/pet-project-movies" target="_blank">Git Repository</a>
                 </div>
             </div>
         </footer>
