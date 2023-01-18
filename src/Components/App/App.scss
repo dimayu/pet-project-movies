@@ -19,13 +19,14 @@
   color: #FFFFFF;
 }
 
-.MuiPagination-root {
+.MuiPagination-ul {
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
 
-  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+  .MuiPaginationItem-root {
     color: #fff;
+
 
     @include xxs-block() {
       min-width: 24px;
