@@ -2,7 +2,7 @@
 Pat Project Movies.
 Movie search and filtering implementations using third-party APIs.
 
-![Illustration for the project]
+
 <br>
 <img src="https://github.com/dimayu/pet-project-movies/blob/master/screen.png" width="735" height="577"/>
 
