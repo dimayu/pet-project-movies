@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { API_BASE_URL, API_KEY, API_LANG, URL_IMG } from '../../ServiceMovies/ServiceMovies';
 import { Loader } from '../index';
 
 import { Autoplay, Pagination, EffectCreative } from 'swiper';
@@ -10,27 +9,22 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/css/effect-creative";
 import "./HomeSlider.scss";
+import { API, URL_IMG } from '../../API/API';
 
 export const HomeSlider = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    fetch(`${API_BASE_URL}/movie/popular?api_key=${API_KEY}&${API_LANG}&page=1`)
-    .then(response => {
-      if (response?.ok) {
-        return response.json();
-      }
-    })
-    .then(data => {
-      if (data) {
+    setLoading(true);
+    API.getMoviesPopular({
+      callbackSuccess: (data) => {
         setMovies(data.results);
         setLoading(false);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setLoading(false);
+      },
+      callbackError: () => {
+        setLoading(false);
+      },
     });
   }, []);
   

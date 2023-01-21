@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { URL_IMG } from '../../ServiceMovies/ServiceMovies';
+import { URL_IMG } from '../../API/API';
 
 import './Movie.scss';
 

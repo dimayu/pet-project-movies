@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import Pagination from '@mui/material/Pagination';
 
 import { Loader, MoviesList } from '../../Components/index';
-import { API_BASE_URL, API_KEY, API_LANG } from '../../ServiceMovies/ServiceMovies';
+import { API } from '../../API/API';
 
 export const PageCategories = () => {
     const params = useParams();
@@ -15,22 +15,17 @@ export const PageCategories = () => {
     
     useEffect(() => {
         setLoading(true);
-        fetch(`${API_BASE_URL}movie/${category}?api_key=${API_KEY}&${API_LANG}&page=${page}`)
-        .then(response => {
-            if (response?.ok) {
-                return response.json();
-            }
-        })
-        .then(data => {
-            if (data) {
+        API.getMoviesCategory({
+            callbackSuccess: (data) => {
                 setMovies(data.results);
                 setPages((data.total_pages < 50) ? data.total_pages : 50) ;
                 setLoading(false);
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-            setLoading(false);
+            },
+            callbackError: () => {
+                setLoading(false);
+            },
+            page,
+            category,
         });
     }, [category, page]);
     

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Pagination from '@mui/material/Pagination';
 
 import { Loader, Genres, MoviesList } from '../index';
-import { API_BASE_URL, API_KEY, API_LANG } from '../../ServiceMovies/ServiceMovies';
+import { API } from '../../API/API';
 
 
 export const BlockGenres = () => {
@@ -14,60 +14,46 @@ export const BlockGenres = () => {
   const [page, setPage] = useState(1);
   
   useEffect(() => {
-    fetch(`${API_BASE_URL}/discover/movie?api_key=${API_KEY}&${API_LANG}&with_genres=28&page=${page}`)
-    .then(response => {
-      if (response?.ok) {
-        return response.json();
-      }
-    })
-    .then(data => {
-      if (data) {
+    setLoading(true);
+    API.getMoviesGenres({
+      callbackSuccess: (data) => {
         setMoviesGenres(data.results);
         setPages((data.total_pages < 50) ? data.total_pages : 50) ;
         setLoading(false);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setLoading(false);
+      },
+      callbackError: () => {
+        setLoading(false);
+      },
+      subCategory: 28,
+      page: page,
     });
   }, [page]);
   
   useEffect(() => {
-    fetch(`${API_BASE_URL}genre/movie/list?api_key=${API_KEY}&${API_LANG}`)
-    .then(response => {
-      if (response?.ok) {
-        return response.json();
-      }
-    })
-    .then(data => {
-      if (data) {
+    setLoading(true);
+    API.getMoviesGenresList({
+      callbackSuccess: (data) => {
         setGenres(data.genres);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setLoading(false);
+        setLoading(false);
+      },
+      callbackError: () => {
+        setLoading(false);
+      },
     });
   }, []);
   
   const genresMovies = useCallback((num = 28) => {
     setLoading(true);
-    fetch(`${API_BASE_URL}/discover/movie?api_key=${API_KEY}&${API_LANG}&with_genres=${num}`)
-    .then(response => {
-      if (response?.ok) {
-        return response.json();
-      }
-    })
-    .then(data => {
-      if (data) {
+    API.getMoviesGenres({
+      callbackSuccess: (data) => {
         setMoviesGenres(data.results);
         setLoading(false);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setLoading(false);
+      },
+      callbackError: () => {
+        setLoading(false);
+      },
+      subCategory: num,
+      page: page
     });
   }, [page]);
   

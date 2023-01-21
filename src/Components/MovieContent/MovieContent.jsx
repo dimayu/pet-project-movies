@@ -1,4 +1,4 @@
-import { URL_IMG } from '../../ServiceMovies/ServiceMovies';
+import { URL_IMG } from '../../API/API';
 
 export const MovieContent = (props) => {
   const {movie} = props;
